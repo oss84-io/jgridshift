@@ -100,8 +100,8 @@ public class SubGrid implements Cloneable, Serializable {
         in.read(b8);
         in.read(b8);
         lonInterval = Util.getDouble(b8, bigEndian);
-        lonColumnCount = 1 + (int)((maxLon - minLon) / lonInterval);
-        latRowCount = 1 + (int)((maxLat - minLat) / latInterval);
+        lonColumnCount = 1 + (int)Math.round(((maxLon - minLon) / lonInterval));
+        latRowCount = 1 + (int)Math.round(((maxLat - minLat) / latInterval));
         in.read(b8);
         in.read(b8);
         nodeCount = Util.getInt(b8, bigEndian);
@@ -176,8 +176,8 @@ public class SubGrid implements Cloneable, Serializable {
         raf.read(b8);
         raf.read(b8);
         lonInterval = Util.getDouble(b8, bigEndian);
-        lonColumnCount = 1 + (int)((maxLon - minLon) / lonInterval);
-        latRowCount = 1 + (int)((maxLat - minLat) / latInterval);
+        lonColumnCount = 1 + (int)Math.round(((maxLon - minLon) / lonInterval));
+        latRowCount = 1 + (int)Math.round(((maxLat - minLat) / latInterval));
         raf.read(b8);
         raf.read(b8);
         nodeCount = Util.getInt(b8, bigEndian);
