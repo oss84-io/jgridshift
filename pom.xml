@@ -28,6 +28,25 @@
     </dependency>
   </dependencies>
 
+ 
+
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>osgeo</id>
+      <name>Open Source Geospatial Foundation - WebDAV upload</name>
+      <url>dav:http://download.osgeo.org/upload/geotools/</url>
+    </repository>
+    <snapshotRepository>
+      <id>boundless</id>
+      <uniqueVersion>false</uniqueVersion>
+      <name>Boundless Snapshot Repository</name>
+      <url>https://repo.boundlessgeo.com/snapshot/</url>
+    </snapshotRepository>
+  </distributionManagement>
+
+
+
   <build>
     <plugins>
       <plugin>
@@ -50,5 +69,13 @@
         </executions>
       </plugin>
     </plugins>
+
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
+      </extension>
+    </extensions>
   </build>
 </project>
