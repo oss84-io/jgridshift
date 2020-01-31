@@ -1,4 +1,18 @@
-jGridShift 1.0
+
+
+## Release Notes
+
+### jGridShift 1.3
+
+- Moved package `au.com.objectix.jgridshift.jca` from the core jar file to a jca module.
+  Its accidental inclusion in core resulted in an undesired dependency on an old JavaEE API.
+- Restored code examples in the sample module.
+
+### jGridShift 1.2
+
+_TODO_
+
+### jGridShift 1.0
 
 This release contains no significant changes to the core API.
 A J2EE JCA adapter has been added, along with a web service sample app.
