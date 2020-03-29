@@ -21,14 +21,14 @@ package au.com.objectix.jgridshift;
 
 /**
  * A set of static utility methods for reading the NTv2 file format
- * 
+ *
  * @author Peter Yuill
  */
 public class Util {
-    
+
     private Util() {
     }
-    
+
     /**
      * Get a Little Endian int from four bytes of a byte array
      * @param b the byte array
@@ -38,7 +38,7 @@ public class Util {
     public static final int getIntLE(byte[] b, int i) {
         return (b[i++] & 0x000000FF) | ((b[i++] << 8) & 0x0000FF00) | ((b[i++] << 16) & 0x00FF0000) | (b[i] << 24);
     }
-    
+
     /**
      * Get a Big Endian int from four bytes of a byte array
      * @param b the byte array
@@ -48,9 +48,9 @@ public class Util {
     public static final int getIntBE(byte[] b, int i) {
         return (b[i++] << 24) | ((b[i++] << 16) & 0x00FF0000) | ((b[i++] << 8) & 0x0000FF00) | (b[i] & 0x000000FF);
     }
-    
+
     /**
-     * Get an int from the first 4 bytes of a byte array, 
+     * Get an int from the first 4 bytes of a byte array,
      * in either Big Endian or Little Endian format.
      * @param b the byte array
      * @param bigEndian is the byte array Big Endian?
@@ -63,9 +63,9 @@ public class Util {
             return getIntLE(b, 0);
         }
     }
-    
+
     /**
-     * Get a float from the first 4 bytes of a byte array, 
+     * Get a float from the first 4 bytes of a byte array,
      * in either Big Endian or Little Endian format.
      * @param b the byte array
      * @param bigEndian is the byte array Big Endian?
@@ -80,10 +80,10 @@ public class Util {
         }
         return Float.intBitsToFloat(i);
     }
-    
-    
+
+
     /**
-     * Get a double from the first 8 bytes of a byte array, 
+     * Get a double from the first 8 bytes of a byte array,
      * in either Big Endian or Little Endian format.
      * @param b the byte array
      * @param bigEndian is the byte array Big Endian?
@@ -103,17 +103,5 @@ public class Util {
                  ((long)j & 0x00000000FFFFFFFFL);
         return Double.longBitsToDouble(l);
     }
-    
-    /**
-     * Does the current VM support the New IO api
-     * @return true or false
-     */
-    public static boolean isNioAvailable() {
-        boolean nioAvailable = false;
-        try {
-            Class.forName("java.nio.channels.FileChannel");
-            nioAvailable = true;
-        } catch (ClassNotFoundException cnfe) {}
-        return nioAvailable;
-    }
+
 }
